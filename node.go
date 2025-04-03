@@ -1,4 +1,4 @@
-package harperdb
+package harper
 
 type Subscription struct {
 	Channel   string `json:"channel,omitempty"`

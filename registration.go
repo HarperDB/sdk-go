@@ -1,4 +1,4 @@
-package harperdb
+package harper
 
 type RegistrationInfoResponse struct {
 	Registered            bool   `json:"registered"`

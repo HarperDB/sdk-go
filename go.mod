@@ -1,4 +1,4 @@
-module github.com/HarperDB-Add-Ons/sdk-go
+module github.com/HarperDB/sdk-go
 
 go 1.18
 

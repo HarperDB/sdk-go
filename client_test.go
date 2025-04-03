@@ -1,4 +1,4 @@
-package harperdb
+package harper
 
 import (
 	"crypto/tls"
@@ -7,7 +7,7 @@ import (
 	"testing"
 	"time"
 
-	uuid "github.com/google/uuid"
+	"github.com/google/uuid"
 )
 
 const (
@@ -29,8 +29,8 @@ func createClient() *Client {
 }
 
 func wait() {
-	// According to HarperDB some operations are asyncronously penetrated between
-	// processes, so while the objects are created they are not immediately visible
+	// Some operations are asynchronously propagated between processes, so
+	// while the objects are created they are not immediately visible
 	time.Sleep(200 * time.Millisecond)
 }
 
@@ -55,8 +55,7 @@ func TestGetFingerprint(t *testing.T) {
 }
 
 func ExampleNewClient() {
-
-	// Connecting to a HarperDB instance
+	// Connecting to a Harper instance
 	c := NewClient("http://localhost:9925", "HDB_ADMIN", "password")
 
 	// (optional) set some proxy
@@ -64,8 +63,7 @@ func ExampleNewClient() {
 }
 
 func ExampleNewClient_https() {
-
-	// Connecting to a HarperDB instance
+	// Connecting to a Harper instance
 	c := NewClient("https://localhost:31283", "HDB_ADMIN", "password")
 
 	// with a self-signed certificate

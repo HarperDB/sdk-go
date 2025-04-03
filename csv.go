@@ -1,4 +1,4 @@
-package harperdb
+package harper
 
 import (
 	"fmt"
@@ -18,7 +18,7 @@ type JobResponse struct {
 
 // CSVDataLoad takes a Reader and executes the CSV Load Data operation
 // if "update" is true, it will not insert but update existing records
-// If successfull, returns the Job ID
+// If successful, returns the Job ID
 func (c *Client) CSVDataLoad(schema, table string, update bool, data io.Reader) (string, error) {
 	return c.csvDataLoad(schema, table, actionByBool(update), data)
 }
@@ -51,7 +51,7 @@ func (c *Client) csvDataLoad(schema, table, action string, data io.Reader) (stri
 // CSVFileLoad takes a path of a file which must exist on the server
 // and executes the CSV Load Data operation
 // if "update" is true, it will not insert but update existing records
-// If successfull, returns the Job ID
+// If successful, returns the Job ID
 func (c *Client) CSVFileLoad(schema, table string, update bool, filePath string) (string, error) {
 	resp := MessageResponse{}
 
@@ -76,7 +76,7 @@ func (c *Client) CSVFileLoad(schema, table string, update bool, filePath string)
 // CSVURLLoad takes a public URL
 // and executes the CSV Load Data operation
 // if "update" is true, it will not insert but update existing records
-// If successfull, returns the Job ID
+// If successful, returns the Job ID
 func (c *Client) CSVURLLoad(schema, table string, update bool, csvURL string) (string, error) {
 	resp := MessageResponse{}
 
@@ -98,8 +98,8 @@ func (c *Client) CSVURLLoad(schema, table string, update bool, csvURL string) (s
 	return "", fmt.Errorf("did not get a job ID from harper instance: %w", ErrJobStatusUnknown)
 }
 
-// extractJobIDFromMessage Askes HarperDB team to return the Job ID
-// structured in the JSON response, for now we parse
+// extractJobIDFromMessage returns the Job ID in the "Starting job..." message
+// TODO: Return the job ID in the JSON instead
 func extractJobIDFromMessage(message string) (string, bool) {
 	jobID := strings.Replace(message, "Starting job with id ", "", 1)
 	if len(jobID) != 36 {

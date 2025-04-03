@@ -1,4 +1,4 @@
-package harperdb
+package harper
 
 type SchemaPermission struct {
 	Tables map[string]TablePermission `json:"tables"`

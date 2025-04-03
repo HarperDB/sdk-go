@@ -1,4 +1,4 @@
-package harperdb
+package harper
 
 type ErrorResponse struct {
 	Error string `json:"error"`

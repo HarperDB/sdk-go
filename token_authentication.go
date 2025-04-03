@@ -1,4 +1,4 @@
-package harperdb
+package harper
 
 type CreateAuthenticationTokensResponse struct {
 	OperationToken string `json:"operation_token"`
