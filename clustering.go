@@ -1,4 +1,4 @@
-package harperdb
+package harper
 
 type ClusterNetworkResponse struct {
 	Nodes []Node `json:"nodes"`

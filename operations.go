@@ -1,4 +1,4 @@
-package harperdb
+package harper
 
 const (
 	OP_ADD_COMPONENT                   = "add_component"
@@ -61,7 +61,6 @@ const (
 	OP_PACKAGE_CUSTOM_FUNCTION_PROJECT = "package_custom_function_project"
 	OP_PURGE_STREAM                    = "purge_stream"
 	OP_READ_AUDIT_LOG                  = "read_audit_log"
-	OP_READ_HARPERDB_LOG               = "read_harperdb_log"
 	OP_READ_LOG                        = "read_log"
 	OP_READ_TRANSACTION_LOG            = "read_transaction_log"
 	OP_REFRESH_OPERATION_TOKEN         = "refresh_operation_token"

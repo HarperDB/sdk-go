@@ -1,4 +1,4 @@
-package harperdb
+package harper
 
 type AffectedResponse struct {
 	MessageResponse

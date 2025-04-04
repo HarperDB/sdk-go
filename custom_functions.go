@@ -1,4 +1,4 @@
-package harperdb
+package harper
 
 type CustomFunctionStatusResponse struct {
 	IsEnabled bool   `json:"is_enabled"`

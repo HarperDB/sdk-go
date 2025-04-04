@@ -1,4 +1,4 @@
-package harperdb
+package harper
 
 type PackageComponentResponse struct {
 	Project string `json:"project"`

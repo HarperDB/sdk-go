@@ -1,4 +1,4 @@
-package harperdb
+package harper
 
 import "fmt"
 
@@ -27,7 +27,7 @@ func (c *Client) SQLExec(stmt string, args ...interface{}) (*AffectedResponse, e
 }
 
 // SQLGet is to query a scalar value from the database. This function is
-// not part of the official HarperDB API.
+// not part of the official Harper API.
 // It executes a SQL statement and expects exactly one object with one key.
 // I.e. SELECT CURRENT_TIMESTAMP
 // Will return the following errors:

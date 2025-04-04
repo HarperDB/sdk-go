@@ -1,4 +1,4 @@
-package harperdb
+package harper
 
 import (
 	"fmt"
@@ -81,7 +81,7 @@ func (c *Client) SetConfigurationRequest(op interface{}, result interface{}) err
 }
 
 // Healthcheck does a GET request against the /health endpoint of the
-// configured HarperDB server and returns an error if it gets a non-200
+// configured Harper server and returns an error if it gets a non-200
 // status, nil otherwise.
 func (c *Client) Healthcheck() error {
 	e := ErrorResponse{}

@@ -1,4 +1,4 @@
-package harperdb
+package harper
 
 type Route struct {
 	Host string `json:"host"`

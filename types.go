@@ -1,4 +1,4 @@
-package harperdb
+package harper
 
 import (
 	"time"
@@ -12,7 +12,7 @@ func FromStringSlice(ss []string) AttributeList {
 	return AttributeList(ss)
 }
 
-// Record type gives you convenient access to HarperDB's meta data fields
+// Record type gives you convenient access to Harper's meta data fields
 // which are automatically added to every record. Currently these are
 // "__createdtime__" and "__updatedtime__".
 //

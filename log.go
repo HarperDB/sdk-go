@@ -1,4 +1,4 @@
-package harperdb
+package harper
 
 import (
 	"time"
@@ -44,7 +44,7 @@ type AuditLogEntry struct {
 	Records    []map[string]interface{}
 }
 
-func (c *Client) ReadHarperDBLog(limit, start int, from, until time.Time, order string) (*LogResponse, error) {
+func (c *Client) ReadLog(limit, start int, from, until time.Time, order string) (*LogResponse, error) {
 	var result LogResponse
 	err := c.opRequest(operation{
 		Operation: OP_READ_LOG,
