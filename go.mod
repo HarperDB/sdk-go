@@ -1,10 +1,12 @@
 module github.com/HarperDB/sdk-go
 
-go 1.18
+go 1.23.0
+
+toolchain go1.24.2
 
 require (
-	github.com/go-resty/resty/v2 v2.3.0
+	github.com/go-resty/resty/v2 v2.16.5
 	github.com/google/uuid v1.3.0
 )
 
-require golang.org/x/net v0.0.0-20201110031124-69a78807bb2b // indirect
+require golang.org/x/net v0.39.0 // indirect
