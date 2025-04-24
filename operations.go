@@ -30,6 +30,7 @@ const (
 	OP_DESCRIBE_SCHEMA                 = "describe_schema"
 	OP_DESCRIBE_DATABASE               = "describe_database"
 	OP_DESCRIBE_TABLE                  = "describe_table"
+	OP_DESCRIBE_METRIC                 = "describe_metric"
 	OP_DELETE                          = "delete"
 	OP_DELETE_AUDIT_LOGS_BEFORE        = "delete_audit_logs_before"
 	OP_DELETE_RECORDS_BEFORE           = "delete_records_before"
@@ -44,6 +45,7 @@ const (
 	OP_DROP_USER                       = "drop_user"
 	OP_EXPORT_LOCAL                    = "export_local"
 	OP_EXPORT_TO_S3                    = "export_to_s3"
+	OP_GET_ANALYTICS                   = "get_analytics"
 	OP_GET_BACKUP                      = "get_backup"
 	OP_GET_CONFIGURATION               = "get_configuration"
 	OP_GET_COMPONENT_FILE              = "get_component_file"
@@ -55,6 +57,7 @@ const (
 	OP_IMPORT_FROM_S3                  = "import_from_s3"
 	OP_INSERT                          = "insert"
 	OP_INSTALL_NODE_MODULES            = "install_node_modules"
+	OP_LIST_METRICS                    = "list_metrics"
 	OP_LIST_ROLES                      = "list_roles"
 	OP_LIST_USERS                      = "list_users"
 	OP_PACKAGE_COMPONENT               = "package_component"
@@ -224,6 +227,8 @@ func (o OpRemoveNode) Prepare() interface{} {
 	}
 }
 
+// TODO: Figure out a better approach than having a superset of all ops params
+// in one struct
 type operation struct {
 	Action          string                       `json:"action,omitempty"`
 	Active          *bool                        `json:"active,omitempty"`
@@ -237,6 +242,7 @@ type operation struct {
 	Date            string                       `json:"date,omitempty"`
 	Database        string                       `json:"database,omitempty"`
 	DryRun          bool                         `json:"dry_run,omitempty"`
+	EndTime         int64                        `json:"end_time,omitempty"`
 	File            string                       `json:"file,omitempty"`
 	FilePath        string                       `json:"file_path,omitempty"`
 	Format          string                       `json:"format,omitempty"`
@@ -251,6 +257,8 @@ type operation struct {
 	IDs             interface{}                  `json:"ids,omitempty"`
 	Key             string                       `json:"key,omitempty"`
 	Limit           int                          `json:"limit,omitempty"`
+	Metric          string                       `json:"metric,omitempty"`
+	MetricTypes     []string                     `json:"metric_types,omitempty"`
 	Name            string                       `json:"name,omitempty"`
 	NodeName        string                       `json:"node_name,omitempty"`
 	Offset          int                          `json:"offset,omitempty"`
@@ -280,6 +288,7 @@ type operation struct {
 	SkipNodeModules bool                         `json:"skip_node_modules,omitempty"`
 	Sort            *Sort                        `json:"sort,omitempty"`
 	Start           int                          `json:"start,omitempty"`
+	StartTime       int64                        `json:"start_time,omitempty"`
 	Subscriptions   []Subscription               `json:"subscriptions,omitempty"`
 	SQL             string                       `json:"sql,omitempty"`
 	Table           string                       `json:"table,omitempty"`
