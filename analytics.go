@@ -11,6 +11,10 @@ type GetAnalyticsRequest struct {
 	EndTime       int64            `json:"end_time"`
 	CoalesceTime  bool             `json:"coalesce_time"`
 	Conditions    SearchConditions `json:"conditions"`
+	// Replicated requests cluster-wide analytics: the queried node fans the
+	// operation out to its peers and merges their rows (each tagged with its
+	// origin node). Requires Harper 5.1.0+; older servers reject the field.
+	Replicated bool `json:"replicated,omitempty"`
 }
 
 type GetAnalyticsResult map[string]interface{}
@@ -24,6 +28,7 @@ func (c *Client) GetAnalytics(req GetAnalyticsRequest) ([]GetAnalyticsResult, er
 		EndTime:       req.EndTime,
 		CoalesceTime:  req.CoalesceTime,
 		Conditions:    req.Conditions,
+		Replicated:    req.Replicated,
 	}
 
 	results := make([]GetAnalyticsResult, 0)

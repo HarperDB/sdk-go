@@ -279,6 +279,7 @@ type operation struct {
 	Projects            []string                     `json:"projects,omitempty"`
 	Records             interface{}                  `json:"records,omitempty"`
 	RefreshToken        string                       `json:"refresh_token,omitempty"`
+	Replicated          bool                         `json:"replicated,omitempty"`
 	Role                string                       `json:"role,omitempty"`
 	S3                  *S3Credentials               `json:"s3,omitempty"`
 	Schema              string                       `json:"schema,omitempty"`
